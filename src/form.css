@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  font-family: monospace;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.form-container div span {
+  text-align: center;
+  font-size: 12px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+.input {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  margin: 10px;
+  border: gray 2px solid;
+  padding: 5px;
+}
+
+.green {
+  border: green solid 2px;
+}
+
+.red {
+  border: red solid 2px;
+}
+
+.btn-form-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 20px;
+}
+
+.cancelform-btn {
+  background-color: #d8d8d8;
+  color: white;
+  font-weight: bold;
+  width: 120px;
+  font-size: 15px;
+  font-family: monospace;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cancelform-btn {
+  background-color: #d8d8d8;
+  color: white;
+  font-weight: bold;
+  width: 120px;
+  font-size: 15px;
+  font-family: monospace;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cancelform-btn-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.submit-btn {
+  background-color: #d8d8d8;
+  font-weight: bold;
+  width: 120px;
+  font-size: 15px;
+  font-family: monospace;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
