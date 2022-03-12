@@ -1,5 +1,6 @@
-import "./card.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import "./card.css";
 
 export default function Card() {
   const users = useSelector((state) => {
@@ -17,7 +18,9 @@ export default function Card() {
               <div>{user.email}</div>
               <div>{user.address.city}</div>
               <div>
-                <button className="edit-btn">Edit</button>
+                <Link className="edit-btn" to="/form">
+                  Edit
+                </Link>
               </div>
               <div>
                 <button className="delete-btn">delete</button>
