@@ -1,3 +1,4 @@
+import "./card.css";
 import { useSelector } from "react-redux";
 
 export default function Card() {
@@ -16,17 +17,17 @@ export default function Card() {
               <div>{user.email}</div>
               <div>{user.address.city}</div>
               <div>
-                <button>Edit</button>
+                <button className="edit-btn">Edit</button>
               </div>
               <div>
-                <button>delete</button>
+                <button className="delete-btn">delete</button>
               </div>
             </div>
           );
         })
       ) : (
-        <div>
-          <h1>There are no users in the database</h1>
+        <div className="nousers-container">
+          <h1 className="nousers-text">There are no users in the database</h1>
         </div>
       )}
     </div>

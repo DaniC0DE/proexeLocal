@@ -11,7 +11,7 @@ function App() {
     dispatch(getUsers());
   }, [dispatch]);
   return (
-    <div className="App">
+    <div>
       <Home />
     </div>
   );

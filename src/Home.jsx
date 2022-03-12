@@ -1,13 +1,14 @@
+import "./home.css";
 import Card from "./Card";
 
 export default function Home() {
   return (
     <div className="app-container">
-      <h1>Dashboard</h1>
+      <h1 className="dashboard-title">Dashboard</h1>
       <div className="dashboard-container">
         <div className="header">
-          <h1>User list</h1>
-          <button>Add new</button>
+          <h1 className="list-title">User list</h1>
+          <button className="add-btn">Add new</button>
         </div>
         <div className="body-container">
           <div className="titles">
@@ -16,8 +17,8 @@ export default function Home() {
             <span>Username</span>
             <span>Email</span>
             <span>City</span>
-            <button> Edit </button>
-            <button> Delete </button>
+            <span> Edit </span>
+            <span> Delete </span>
           </div>
           <div>
             <Card />
