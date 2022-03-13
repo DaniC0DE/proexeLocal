@@ -1,7 +1,16 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
+import { deleteUser } from "./redux";
 import "./popup.css";
 
 export default function PopupDelete(props) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleDelete = (user) => {
+    dispatch(deleteUser(user));
+  };
   return (
     <Popup
       className="popup-background"
@@ -19,20 +28,20 @@ export default function PopupDelete(props) {
           <div className="popup-btn-container">
             <button
               className="popup-btn"
-              //   onClick={() => {
-              //     close();
-              //     navigate("/");
-              //   }}
+              onClick={() => {
+                close();
+                navigate("/");
+              }}
             >
               Cancel
             </button>
             <button
               className="popup-btn"
-              //   onClick={() => {
-              //     handleDelete(props.user);
-              //     close();
-              //     navigate("/");
-              //   }}
+              onClick={() => {
+                handleDelete(props.user);
+                close();
+                navigate("/");
+              }}
             >
               Yes
             </button>

@@ -28,7 +28,7 @@ export default function Card() {
                 </Link>
               </div>
               <div>
-                <Popup>Delete</Popup>
+                <Popup user={user}>Delete</Popup>
               </div>
             </div>
           );
