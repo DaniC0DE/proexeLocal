@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addUser } from "./redux";
+import { addUser, editUser } from "./redux";
 import "./home.css";
 import "./form.css";
 
@@ -20,6 +20,8 @@ export default function Form() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { edit } = location?.state;
 
   useEffect(() => {
     if (newUser.name.length > 0 && newUser.email.length > 0) {
@@ -28,6 +30,22 @@ export default function Form() {
       setError(true);
     }
   }, [newUser.name, newUser.email]);
+
+  useEffect(() => {
+    if (edit) {
+      const { user: id } = location?.state;
+      const editUser = users.find((user) => {
+        return user.id === id;
+      });
+      setNewUser({
+        id: editUser.id,
+        name: editUser.name,
+        email: editUser.email,
+        username: editUser.username,
+        address: { city: editUser.address.city },
+      });
+    }
+  }, [edit]);
 
   const handleForm = (e) => {
     if (e.target.name === "city") {
@@ -44,8 +62,28 @@ export default function Form() {
     }
   };
 
+  const handleToEdit = (e) => {
+    if (e.target.name === "city") {
+      setNewUser({
+        ...newUser,
+        address: { [e.target.name]: e.target.value },
+      });
+    } else {
+      setNewUser({
+        ...newUser,
+        id: newUser.id,
+        [e.target.name]: e.target.value,
+      });
+    }
+  };
+
   const handleSubmit = () => {
     dispatch(addUser(newUser));
+    navigate("/");
+  };
+
+  const handleEditSubmit = () => {
+    dispatch(editUser(newUser));
     navigate("/");
   };
 
@@ -73,7 +111,7 @@ export default function Form() {
               <input
                 className={classNameGenerator(error)}
                 name="name"
-                onChange={handleForm}
+                onChange={edit ? handleToEdit : handleForm}
                 value={newUser.name}
                 type="text"
                 placeholder="please enter your name"
@@ -87,7 +125,7 @@ export default function Form() {
               <input
                 className={classNameGenerator(error)}
                 name="email"
-                onChange={handleForm}
+                onChange={edit ? handleToEdit : handleForm}
                 value={newUser.email}
                 type="text"
                 placeholder="please enter your email"
@@ -101,7 +139,7 @@ export default function Form() {
               <input
                 className="input"
                 name="username"
-                onChange={handleForm}
+                onChange={edit ? handleToEdit : handleForm}
                 value={newUser.username}
                 type="text"
                 placeholder="please enter your username"
@@ -114,7 +152,7 @@ export default function Form() {
               <input
                 className="input"
                 name="city"
-                onChange={handleForm}
+                onChange={edit ? handleToEdit : handleForm}
                 value={newUser.address.city}
                 type="text"
                 placeholder="please enter your city"
@@ -126,13 +164,23 @@ export default function Form() {
           <Link className="cancelform-btn" to="/">
             Cancel
           </Link>
-          <button
-            className="submit-btn"
-            disabled={error}
-            onClick={handleSubmit}
-          >
-            Submit
-          </button>
+          {edit ? (
+            <button
+              className="submit-btn"
+              disabled={error}
+              onClick={handleEditSubmit}
+            >
+              Edit
+            </button>
+          ) : (
+            <button
+              className="submit-btn"
+              disabled={error}
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          )}
         </div>
       </div>
     </div>

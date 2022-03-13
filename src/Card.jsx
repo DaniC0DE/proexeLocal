@@ -19,7 +19,11 @@ export default function Card() {
               <div>{user.email}</div>
               <div>{user.address.city}</div>
               <div>
-                <Link className="edit-btn" to="/form">
+                <Link
+                  className="edit-btn"
+                  to="/form"
+                  state={{ user: user.id, edit: true }}
+                >
                   Edit
                 </Link>
               </div>

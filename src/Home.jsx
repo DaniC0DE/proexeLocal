@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./home.css";
 import Card from "./Card";
 
@@ -9,7 +9,7 @@ export default function Home() {
       <div className="dashboard-container">
         <div className="header">
           <h1 className="list-title">User list</h1>
-          <Link className="add-btn" to="/form">
+          <Link className="add-btn" to="/form" state={{ edit: false }}>
             Add new
           </Link>
         </div>
