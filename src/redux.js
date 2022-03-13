@@ -16,6 +16,22 @@ export default function reducer(state = initialState, action = {}) {
       return { ...state, users: action.users };
     case ADD:
       return { ...state, users: [...state.users, action.userToAdd] };
+    case EDIT:
+      const editList = state.users.map((user) => {
+        if (user.id === action.userToEdit.id) {
+          return action.userToEdit;
+        } else {
+          return user;
+        }
+      });
+      return { ...state, users: editList };
+    case DELETE:
+      const newList = state.users.filter((user) => {
+        if (user.id !== action.userToDelete.id) {
+          return user;
+        }
+      });
+      return { ...state, users: newList };
     default:
       return state;
   }
