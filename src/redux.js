@@ -14,6 +14,8 @@ export default function reducer(state = initialState, action = {}) {
     // do reducer stuff
     case LOAD:
       return { ...state, users: action.users };
+    case ADD:
+      return { ...state, users: [...state.users, action.userToAdd] };
     default:
       return state;
   }
