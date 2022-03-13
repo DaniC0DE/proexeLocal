@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Popup from "./Popup.jsx";
 import "./card.css";
 
 export default function Card() {
@@ -23,7 +24,7 @@ export default function Card() {
                 </Link>
               </div>
               <div>
-                <button className="delete-btn">delete</button>
+                <Popup>Delete</Popup>
               </div>
             </div>
           );
