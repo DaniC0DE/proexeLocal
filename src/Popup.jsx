@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
-import { deleteUser } from "./redux";
+import { deleteUserAPI } from "./redux";
 import "./popup.css";
 
 export default function PopupDelete(props) {
@@ -9,7 +9,7 @@ export default function PopupDelete(props) {
   const navigate = useNavigate();
 
   const handleDelete = (user) => {
-    dispatch(deleteUser(user));
+    dispatch(deleteUserAPI(user));
   };
   return (
     <Popup

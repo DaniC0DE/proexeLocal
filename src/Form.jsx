@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addUser, editUser } from "./redux";
+import { addUserAPI, editUserAPI } from "./redux";
 import "./home.css";
 import "./form.css";
 
@@ -78,12 +78,12 @@ export default function Form() {
   };
 
   const handleSubmit = () => {
-    dispatch(addUser(newUser));
+    dispatch(addUserAPI(newUser));
     navigate("/");
   };
 
   const handleEditSubmit = () => {
-    dispatch(editUser(newUser));
+    dispatch(editUserAPI(newUser));
     navigate("/");
   };
 

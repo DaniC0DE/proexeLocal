@@ -67,3 +67,71 @@ export function getUsers() {
       .then((users) => dispatch(loadingUsers(users)));
   };
 }
+
+const URL_BASE =
+  "https://my-json-server.typicode.com/karolkproexe/jsonplaceholderdb/data";
+
+export function addUserAPI(user) {
+  return (dispatch) => {
+    fetch(URL_BASE, {
+      method: "POST",
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email,
+        username: user.username,
+        address: {
+          city: user.address.city,
+        },
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((user) => {
+        dispatch(addUser(user));
+      });
+  };
+}
+
+export function editUserAPI(user) {
+  return (dispatch) => {
+    fetch(`${URL_BASE}/${user.id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        name: user.name,
+        email: user.email,
+        username: user.username,
+        address: {
+          city: user.address.city,
+        },
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((user) => {
+        dispatch(editUser(user));
+      });
+  };
+}
+
+export function deleteUserAPI(user) {
+  let { id } = user;
+  return (dispatch) => {
+    fetch(`${URL_BASE}/${user.id}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then(() => {
+        dispatch(deleteUser(id));
+      });
+  };
+}
