@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.card-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.edit-btn {
+  background-color: #e9e445;
+  width: 80px;
+  font-size: 12px;
+  font-family: monospace;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #f1342d;
+  color: white;
+  font-weight: bold;
+  width: 80px;
+  font-size: 12px;
+  font-family: monospace;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.nousers-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+.nousers-text {
+  font-size: 35px;
+  font-family: monospace;
+}
