@@ -17,14 +17,14 @@
   justify-content: center;
   width: 120px;
   text-align: center;
-  font-size: 15px;
+  font-size: 12px;
   font-family: monospace;
 }
 
 .edit-btn {
   background-color: #e9e445;
-  width: 120px;
-  font-size: 15px;
+  width: 80px;
+  font-size: 12px;
   font-family: monospace;
   text-decoration: none;
   color: black;
@@ -39,8 +39,8 @@
   background-color: #f1342d;
   color: white;
   font-weight: bold;
-  width: 120px;
-  font-size: 15px;
+  width: 80px;
+  font-size: 12px;
   font-family: monospace;
   border: none;
   border-radius: 5px;

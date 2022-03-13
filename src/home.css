@@ -19,7 +19,7 @@
 }
 
 .dashboard-container {
-  width: 1200px;
+  width: 100%;
   border: 3px solid #444444;
   border-radius: 15px;
   box-shadow: 6px 0px 6px -1px rgba(0, 0, 0, 0.51);
@@ -35,7 +35,7 @@
 }
 
 .list-title {
-  font-size: 30px;
+  font-size: 25px;
   font-family: monospace;
 }
 
@@ -61,7 +61,7 @@
   background-color: #f5f5f5;
   border: 1px solid #bbb1b1db;
   padding: 25px;
-  font-size: 20px;
+  font-size: 16px;
   font-family: monospace;
 }
 
